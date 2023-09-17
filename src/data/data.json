@@ -1,0 +1,20 @@
+[
+    {
+        "ID": "1",
+        "Marca": "Logitec",
+        "Producto": "Mouse Ergonomico",
+        "Codigo": "1212",
+        "Imagen": "https://http2.mlstatic.com/D_NQ_NP_961283-MLA51055336034_082022-O.webp",
+        "Stock": "52",
+        "Precio": "5800"
+    },
+    {
+        "ID": "2",
+        "Marca": "Microsoft",
+        "Producto": "Kit teclado y mouse",
+        "Codigo": "1414",
+        "Imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_604048-MLA46440121556_062021-F.webp",
+        "Stock": "12",
+        "Precio": "1021"
+    }
+]
