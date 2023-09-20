@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { ApiContext } from '../../Context/ApiContext'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -8,11 +8,7 @@ import Button from 'react-bootstrap/Button';
 const ItemListContainer = () => {
 
 
-    const { suma, data } = useContext(ApiContext)
-
-    useEffect(() => {
-        console.log(suma(1, 3))
-    }, [])
+    const { data } = useContext(ApiContext)
 
 
     return (
