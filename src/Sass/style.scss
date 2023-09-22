@@ -3,3 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    width: 100%;
+}
+
+.d-f-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.d-f-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+@import "../Components/Navbar/navbar.scss";
+@import "../Components/Buscador/buscador.scss";

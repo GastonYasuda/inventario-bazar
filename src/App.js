@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ApiProvider from './Context/ApiContext';
-import ItemListContainer from './View/ItemListContainer/ItemListContainer';
+import Home from './View/Home/Home';
 
 function App() {
   return (
     <ApiProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/' element={<Home />} />
         </Routes>
       </BrowserRouter>
     </ApiProvider>

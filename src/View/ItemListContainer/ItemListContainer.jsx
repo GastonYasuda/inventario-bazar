@@ -21,7 +21,7 @@ const ItemListContainer = () => {
                             <Card.Title>{eachProduct.marca}</Card.Title>
                             <Card.Text>{eachProduct.producto}</Card.Text>
                             <Card.Text>{eachProduct.stock}</Card.Text>
-                            <Card.Text>{eachProduct.precio}</Card.Text>
+                            <Card.Text>${eachProduct.precio}</Card.Text>
 
                             <Button variant="primary">Go somewhere</Button>
 
