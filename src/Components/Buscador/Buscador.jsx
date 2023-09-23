@@ -12,7 +12,7 @@ const Buscador = () => {
                 aria-describedby="basic-addon2"
             />
             <Button variant="outline-secondary" id="button-addon2" >
-                <img className='btn-buscador' src="../assets/search.png" alt="search icon" />
+                <img className='btn-buscador' src="/assets/search.png" alt="search icon" />
             </Button>
         </InputGroup>)
 }

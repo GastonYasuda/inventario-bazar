@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 
@@ -20,11 +19,8 @@ const ItemListContainer = ({ products }) => {
                                 <Card.Text>{eachProduct.producto}</Card.Text>
                                 <Card.Text>Stock:{eachProduct.stock}</Card.Text>
                                 <Card.Text>{eachProduct.precio}</Card.Text>
-
-                                <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
                         </Card>
-
                     </Link>
                 )
             })}

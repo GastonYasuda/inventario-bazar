@@ -7,14 +7,14 @@ const Navbar = () => {
         <div className='navbar d-f-row'>
             <div className="logo">
                 <Link to={'/'}>
-                    <img src="../assets/logo.png" alt="logo espacio bazar" />
+                    <img src="/assets/logo.png" alt="logo espacio bazar" />
                 </Link>
             </div>
             <div className="buscador">
                 <Buscador />
             </div>
             <div className="menu">
-                <img src="../assets/hamburger.png" alt="menu icon" />
+                <img src="/assets/hamburger.png" alt="menu icon" />
             </div>
 
         </div>
