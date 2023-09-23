@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import Navbar from '../../Components/Navbar/Navbar'
+import { ApiContext } from '../../Context/ApiContext'
 
 const ProductContainer = () => {
 
-    const { } = useParams()
+    const { productId } = useParams()
+
+    const { data } = useContext(ApiContext)
+
+    useEffect(() => {
+        console.log(productId);
+
+        for (const key in data) {
+           
+        }
+
+    }, [])
 
     return (
-        <div>ProductContainer</div>
+        <>
+            <Navbar />
+            <div>ProductContainer</div>
+        </>
     )
 }
 

@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/byBrand/:byBrandId' element={<ByBrand />} />
-          <Route path='/product/:productId' element={<ProductContainer />} />
+          <Route path='/product/:brandId/:productId' element={<ProductContainer />} />
         </Routes>
       </BrowserRouter>
     </ApiProvider>
