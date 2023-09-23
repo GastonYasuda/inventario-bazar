@@ -18,18 +18,7 @@ const ProductContainer = () => {
 
         if (searchProduct !== undefined) {
             setSelectProduct(searchProduct);
-
-            // console.log(searchProduct);
-
         }
-
-        if (Object.keys(selectProduct).length !== 0) {
-
-            console.log(selectProduct);
-        }
-
-        // console.log(typeof (selectProduct));//object
-        // console.log(typeof (searchProduct));//undefined
 
     }, [data, selectProduct])
 
