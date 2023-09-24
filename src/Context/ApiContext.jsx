@@ -51,8 +51,22 @@ const ApiProvider = ({ children }) => {
     }, [])
 
 
+    const [brandImg, setBrandImg] = useState('')
+
+    const searchBrandImg = (whatBrand) => {
+        marca.find(e => {
+            if (e.marca.toLowerCase() === whatBrand.toLowerCase()) {
+                setBrandImg(e.imagen)
+                //console.log("soy ", e.marca);
+                //console.log(e.imagen);
+            }
+        })
+    }
+
+
+
     return (
-        <ApiContext.Provider value={{ marca, data }}>
+        <ApiContext.Provider value={{ marca, data, searchBrandImg, brandImg }}>
             {children}
         </ApiContext.Provider>
     )

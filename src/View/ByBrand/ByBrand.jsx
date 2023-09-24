@@ -8,12 +8,13 @@ const ByBrand = () => {
 
     const { byBrandId } = useParams()
 
-    const { data } = useContext(ApiContext)
+    const { data, searchBrandImg, brandImg } = useContext(ApiContext)
 
     const [chooseBrand, setChooseBrand] = useState([])
 
 
     useEffect(() => {
+        searchBrandImg(byBrandId)
 
         const brandProducts = []
 
@@ -30,6 +31,7 @@ const ByBrand = () => {
     return (
         <>
             <Navbar />
+            <img src={brandImg} alt="brand image" style={{ width: '90px' }} />
             <ItemListContainer products={chooseBrand} />
 
         </>
