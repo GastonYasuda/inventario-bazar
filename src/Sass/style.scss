@@ -8,6 +8,10 @@ body {
     width: 100%;
 }
 
+.dropdown-toggle::after {
+    content: none;
+}
+
 .d-f-row {
     display: flex;
     flex-direction: row;

@@ -10,7 +10,7 @@ const DropDownMenu = () => {
     return (
 
         <Dropdown>
-            <Dropdown.Toggle id="dropdown-basic">
+            <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: 'transparent', border: 'none' }}>
                 <img src="/assets/hamburger.png" alt="menu icon" />
             </Dropdown.Toggle>
 
