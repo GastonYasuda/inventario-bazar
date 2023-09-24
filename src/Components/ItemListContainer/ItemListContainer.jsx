@@ -17,6 +17,7 @@ const ItemListContainer = ({ products }) => {
                             <Card.Body>
                                 <Card.Title>{eachProduct.marca}</Card.Title>
                                 <Card.Text>{eachProduct.producto}</Card.Text>
+                                <Card.Text>Cod.:{eachProduct.codigo}</Card.Text>
                                 <Card.Text>Stock:{eachProduct.stock}</Card.Text>
                                 <Card.Text>{eachProduct.precio}</Card.Text>
                             </Card.Body>

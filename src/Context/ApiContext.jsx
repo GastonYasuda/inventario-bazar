@@ -55,7 +55,7 @@ const ApiProvider = ({ children }) => {
 
     const searchBrandImg = (whatBrand) => {
         marca.find(e => {
-            if (e.marca.toLowerCase() === whatBrand.toLowerCase()) {
+            if (e.marca === whatBrand) {
                 setBrandImg(e.imagen)
                 //console.log("soy ", e.marca);
                 //console.log(e.imagen);

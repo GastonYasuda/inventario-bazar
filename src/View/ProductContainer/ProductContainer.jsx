@@ -4,8 +4,7 @@ import Navbar from '../../Components/Navbar/Navbar'
 import { ApiContext } from '../../Context/ApiContext'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import ItemListContainer from '../../Components/ItemListContainer/ItemListContainer';
-import ByBrand from '../ByBrand/ByBrand';
+import Stock from '../../Components/Stock/Stock';
 
 const ProductContainer = () => {
 
@@ -41,10 +40,11 @@ const ProductContainer = () => {
                 <Card.Body>
                     <Card.Title>{selectProduct.marca}</Card.Title>
                     <Card.Text>{selectProduct.producto}</Card.Text>
+                    <Card.Text>Cod.:{selectProduct.codigo}</Card.Text>
                     <Card.Text>Stock:{selectProduct.stock}</Card.Text>
                     <Card.Text>{selectProduct.precio}</Card.Text>
 
-                    <Button variant="primary">Go somewhere</Button>
+                    <Stock selectProduct={selectProduct} />
                 </Card.Body>
             </Card>
         </>
