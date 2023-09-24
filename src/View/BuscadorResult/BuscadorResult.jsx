@@ -10,6 +10,7 @@ const BuscadorResult = () => {
     const { data, searchBrandImg, brandImg } = useContext(ApiContext)
 
     const [searchOk, setSearchOk] = useState([])
+    const [showLogo, setShowLogo] = useState(false)
 
     //producto buscar si la palabra conincide con el searchResultId
 
@@ -17,11 +18,29 @@ const BuscadorResult = () => {
 
         searchBrandImg(searchResultId)
 
+        const searchWord = searchResultId.toLowerCase()
 
-        const search = data.filter(e => e.marca.toLowerCase() === searchResultId.toLowerCase() || e.producto.toLowerCase() === searchResultId.toLowerCase())
+        const productResultMatch = []
+
+        for (const key in data) {
+            const selectWord = data[key].producto.toLowerCase().split(' ')
+
+            if (selectWord.includes(searchWord)) {
+                setShowLogo(false)
+
+              //  console.log("EXISTE", data[key]);
+                productResultMatch.push(data[key])
+            }
+
+        }
+        setSearchOk(productResultMatch)
+
+
+        const search = data.filter(e => e.marca.toLowerCase() === searchResultId.toLowerCase())
 
         if (search.length !== 0) {
             // console.log(search);
+            setShowLogo(true)
             setSearchOk(search);
         }
 
@@ -31,7 +50,9 @@ const BuscadorResult = () => {
     return (
         <>
             <Navbar />
-            <img src={brandImg} alt="brand image" style={{ width: '90px' }} />
+            {
+                showLogo && <img src={brandImg} alt="brand image" style={{ width: '90px' }} />
+            }
             <ItemListContainer products={searchOk} />
         </>
     )

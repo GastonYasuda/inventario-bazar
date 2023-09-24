@@ -63,10 +63,14 @@ const ApiProvider = ({ children }) => {
         })
     }
 
+    function mayPrimera(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
 
 
     return (
-        <ApiContext.Provider value={{ marca, data, searchBrandImg, brandImg }}>
+        <ApiContext.Provider value={{ marca, data, searchBrandImg, brandImg, mayPrimera }}>
             {children}
         </ApiContext.Provider>
     )

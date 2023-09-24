@@ -1,6 +1,7 @@
 import React from 'react'
 import Buscador from '../Buscador/Buscador'
 import { Link } from 'react-router-dom'
+import DropDownMenu from '../DropDownMenu/DropDownMenu'
 
 const Navbar = () => {
     return (
@@ -14,7 +15,7 @@ const Navbar = () => {
                 <Buscador />
             </div>
             <div className="menu">
-                <img src="/assets/hamburger.png" alt="menu icon" />
+                <DropDownMenu />
             </div>
 
         </div>

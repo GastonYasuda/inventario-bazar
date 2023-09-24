@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Link } from 'react-router-dom';
 import BuscadorResult from '../../View/BuscadorResult/BuscadorResult';
+import { ApiContext } from '../../Context/ApiContext';
 
 const Buscador = () => {
 
     const [searchInput, setSearchInput] = useState('')
 
-    function mayPrimera(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }
+    const { mayPrimera } = useContext(ApiContext)
+
+  
     return (
         <InputGroup >
             <Form.Control
