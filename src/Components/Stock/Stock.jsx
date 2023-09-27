@@ -4,15 +4,20 @@ import Modal from 'react-bootstrap/Modal';
 import { ApiContext } from '../../Context/ApiContext';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useForm } from 'react-hook-form';
+import FloatingLabel from 'react-bootstrap/esm/FloatingLabel';
 
 
 const Stock = ({ selectProduct }) => {
 
-    const { searchBrandImg, brandImg } = useContext(ApiContext)
+
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
+    const { searchBrandImg, brandImg, addFunction, removeFunction } = useContext(ApiContext)
     const [show, setShow] = useState(false);
 
-    const [add, setAdd] = useState('')
-    const [remove, setRemove] = useState('')
+    const [confirmModal, setConfirmModal] = useState(false)
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -22,68 +27,77 @@ const Stock = ({ selectProduct }) => {
 
     }, [])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(add);
-        console.log(remove);
+    const onSubmit = (data) => {
+        const { add, remove } = data
 
+        console.log("agregar", (add));
+        console.log(typeof (add));
+
+        if (add !== '' && remove === '') {
+            addFunction(selectProduct.stock, add)
+            setConfirmModal(true)
+        } else if (add === '' && remove !== '') {
+            removeFunction(selectProduct.stock, remove)
+            setConfirmModal(true)
+        }
+        console.log(confirmModal);
     }
 
 
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Button variant="primary" onClick={handleShow}>
-                Edit
-            </Button>
+        <>
+            {
+                confirmModal ?
+                    <h1>HOLA</h1>
+                    :
+                    <>
+                        <Button variant="primary" onClick={handleShow}>
+                            Edit
+                        </Button>
 
-            <Modal show={show} onHide={handleClose} centered={true}>
+                        <Modal show={show} onHide={handleClose} centered={true}>
 
-                <Modal.Header closeButton>
-                    <Modal.Title>{selectProduct.producto}</Modal.Title>
-                    <img src={brandImg} alt="brand image" style={{ width: '90px' }} />
-                </Modal.Header>
-
-
-                <Modal.Body>
-                    Stock: {selectProduct.stock}
-                    <InputGroup >
-                        <Form.Control
-                            placeholder="Agregar"
-                            aria-label="Recipient's username"
-                            aria-describedby="basic-addon2"
-                            onChange={e => setAdd(e.target.value)}
-
-                        />
-
-                    </InputGroup >
-                    <InputGroup >
-                        <Form.Control
-                            placeholder="Sacar"
-                            aria-label="Recipient's username"
-                            aria-describedby="basic-addon2"
-                            onChange={e => setRemove(e.target.value)}
-                        />
-
-                    </InputGroup >
-
-                </Modal.Body>
+                            <Modal.Header closeButton>
+                                <Modal.Title>{selectProduct.producto}</Modal.Title>
+                                <img src={brandImg} alt="brand image" style={{ width: '90px' }} />
+                            </Modal.Header>
 
 
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleSubmit}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <Modal.Body>
+                                    Stock: {selectProduct.stock}
+                                    <FloatingLabel controlId="floatingPassword" label="Add" className='agregarInput'>
+                                        <Form.Control
+                                            type="number"
+                                            placeholder="Agregar"
+                                            {...register("add")} />
+                                    </FloatingLabel>
+
+                                    <FloatingLabel controlId="floatingPassword" label="Remove" className='agregarInput'>
+                                        <Form.Control type="number" placeholder="Agregar"  {...register("remove")} />
+                                    </FloatingLabel>
 
 
-            </Modal>
-        </form>
+                                </Modal.Body>
 
+
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleClose}>
+                                        Close
+                                    </Button>
+                                    <Button variant="primary" type='submit'>
+                                        Save Changes
+                                    </Button>
+                                </Modal.Footer>
+
+
+                            </form >
+                        </Modal>
+                    </>
+            }
+        </>
     )
 }
 

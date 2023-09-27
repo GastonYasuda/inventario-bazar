@@ -63,6 +63,21 @@ const ApiProvider = ({ children }) => {
         })
     }
 
+
+    const addFunction = (a, b) => {
+        const result = Number(a) + Number(b)
+        console.log(result);
+    }
+
+    const removeFunction = (a, b) => {
+        const result = Number(a) - Number(b)
+        console.log(result);
+    }
+
+
+
+
+
     function mayPrimera(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
@@ -70,7 +85,7 @@ const ApiProvider = ({ children }) => {
 
 
     return (
-        <ApiContext.Provider value={{ marca, data, searchBrandImg, brandImg, mayPrimera }}>
+        <ApiContext.Provider value={{ marca, data, searchBrandImg, brandImg, addFunction, removeFunction, mayPrimera }}>
             {children}
         </ApiContext.Provider>
     )
